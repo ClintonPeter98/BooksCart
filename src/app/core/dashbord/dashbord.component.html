@@ -1,0 +1,15 @@
+<p class="mt-5 fw-bold dashboard-para">dashbord works!</p>
+<h1>{{title}}</h1>
+<h2>{{name}}</h2> <!--Interpolation => uses {{}}--> 
+<img src="{{imageSrc}}" /> <!--Interpolation-->
+<br/>
+<!--property binding => uses []-->
+<img [src]="imageSrc" />
+
+<!--Interpolation & Property binding are from component to HTML-->
+<!--Event binding ===> Use () ===> HTML to component-->
+<button (click)="onSubmit('Submit clicked!')">Submit</button>
+<input type="text" (input)="onInputChange()" [(ngModel)]="initialValue">
+
+
+<button routerLink="/cart">Go to cart</button>

@@ -21,7 +21,7 @@ export class AppComponent {
   constructor(){
     this.otherTitles.push('books');
     this.otherTitles.push('notes');
-    console.log(this.titles, this.otherTitles, this.getProducts(), this.bookData);
+    // console.log(this.titles, this.otherTitles, this.getProducts(), this.bookData);
   }
 
   getProducts() {

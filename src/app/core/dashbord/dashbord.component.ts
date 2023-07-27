@@ -1,4 +1,6 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { AppService } from 'src/app/services/app.service';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-dashbord',
@@ -11,18 +13,19 @@ export class DashbordComponent implements OnInit, OnChanges, OnDestroy {
   imageSrc = 'https://picsum.photos/200/300';
   initialValue = 'I am initial value';
 
-  constructor() {
-    console.log(1);
+  constructor(private readonly appService: AppService) {
+    // console.log(this.dashboardService.getUserDetails());
+    this.appService.setCartValue(1000);
   }
    ngOnChanges(): void {
-    console.log(2);
+    // console.log(2);
   }
   ngOnInit(): void {
-    console.log(3);
+    // console.log(3);
   }
  
   ngOnDestroy(): void {
-    alert(4);
+    // alert(4);
   }
 
   onSubmit = (value: string) => {

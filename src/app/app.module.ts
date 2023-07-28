@@ -10,6 +10,8 @@ import { AppService } from './services/app.service';
 import { DashboardService } from './services/dashboard.service';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { BookDetailsComponent } from './core/book-details/book-details.component';
+import { ProductListComponent } from './core/product-list/product-list.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { BookDetailsComponent } from './core/book-details/book-details.component
     CartComponent,
     PageNotFoundComponent,
     BookDetailsComponent,
+    ProductListComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,65 @@
-<p class="mt-5 fw-bold dashboard-para">dashbord works!</p>
-<h1>{{title}}</h1>
-<h2>{{name}}</h2> <!--Interpolation => uses {{}}--> 
-<img src="{{imageSrc}}" /> <!--Interpolation-->
-<br/>
+<!-- <p class="mt-5 fw-bold dashboard-para">dashbord works!</p> -->
+<!-- <h1>{{title}}</h1> -->
+<!-- <h2>{{name}}</h2> Interpolation => uses {{}}  -->
+<!-- <img src="{{imageSrc}}" /> Interpolation -->
+<!-- <br/> -->
 <!--property binding => uses []-->
-<img [src]="imageSrc" />
+<!-- <img [src]="imageSrc" /> -->
 
 <!--Interpolation & Property binding are from component to HTML-->
 <!--Event binding ===> Use () ===> HTML to component-->
-<button (click)="onSubmit('Submit clicked!')">Submit</button>
+<!-- <button (click)="onSubmit('Submit clicked!')">Submit</button>
 <input type="text" (input)="onInputChange()" [(ngModel)]="initialValue">
 
 
-<button routerLink="/cart">Go to cart</button>
+<button routerLink="/cart">Go to cart</button> -->
+
+
+<!--From Parent to child ===> @Input()-->
+<!--From Child to parent ===> @Output()-->
+{{dataFromChild}}
+<app-product-list [childInput]="sendThisDataToChild" (sendToParent)="onChildDataSend($event)"></app-product-list>
+
+
+<h3 *ngIf="showIAmVisible ; else showInvisible">I am visibile</h3>
+<ng-template #showInvisible>
+    <h3>I am Invisibile</h3>
+</ng-template>
+
+<div class="iteration-container" [ngClass]="redBackground ? 'red-background': 'blue-background'">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of productList">
+                <td>{{item.name}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.cost}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="mt-5" [ngSwitch]="true"
+        [ngStyle]="{background: redBackground ? 'white': 'black', color: redBackground ? 'black': 'white'}">
+        <div *ngSwitchCase="switchCaseVariable > 0 && switchCaseVariable <= 10">0 - 10</div>
+        <div *ngSwitchCase="switchCaseVariable > 10 && switchCaseVariable <= 20">11 - 20</div>
+        <div *ngSwitchCase="switchCaseVariable > 20 && switchCaseVariable <= 30">21 - 30</div>
+        <div *ngSwitchCase="switchCaseVariable > 30 && switchCaseVariable <= 40">31 - 40</div>
+        <div *ngSwitchCase="switchCaseVariable > 40 && switchCaseVariable <= 50">41 - 50</div>
+        <div *ngSwitchDefault>51 > </div>
+    </div>
+</div>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <span appHighlight>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </span>
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>

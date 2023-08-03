@@ -12,6 +12,14 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 import { BookDetailsComponent } from './core/book-details/book-details.component';
 import { ProductListComponent } from './core/product-list/product-list.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { NumberToStringPipe } from './pipes/number-to-string.pipe';
+import { MomentDatePipe } from './pipes/moment-date.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './layouts/header/header.component';
+import { BodyComponent } from './layouts/body/body.component';
+import { MainComponent } from './layouts/main/main.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,11 +30,19 @@ import { HighlightDirective } from './directives/highlight.directive';
     BookDetailsComponent,
     ProductListComponent,
     HighlightDirective,
+    NumberToStringPipe,
+    MomentDatePipe,
+    HeaderComponent,
+    BodyComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [AppService, DashboardService],
   bootstrap: [AppComponent]

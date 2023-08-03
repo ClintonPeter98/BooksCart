@@ -31,7 +31,10 @@ export class DashbordComponent implements OnInit, OnChanges, OnDestroy {
     {name: 'Pen', quantity: '15Pcs', cost: 500},
   ] 
 
-  constructor(private readonly appService: AppService) {
+  constructor(private readonly appService: AppService, private dashboardService: DashboardService) {
+    this.dashboardService.getTodos().subscribe(res => {
+      console.log(res);
+    })
     // console.log(this.dashboardService.getUserDetails());
     this.appService.setCartValue(1000);
 

@@ -4,13 +4,18 @@ import { DashbordComponent } from './core/dashbord/dashbord.component';
 import { CartComponent } from './core/cart/cart.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { BookDetailsComponent } from './core/book-details/book-details.component';
+import { MainComponent } from './layouts/main/main.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  {path: 'dashboard', component: DashbordComponent},
-  {path: 'cart', component: CartComponent},
-  {path: 'book-details/:id', component: BookDetailsComponent},
-  {path: '**', component: PageNotFoundComponent},
+  { path: '', component: MainComponent},
+  { path: 'dashboard', component: DashbordComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'book-details/:id', component: BookDetailsComponent },
+  {
+    path: 'main',
+    loadChildren: () => import('./layouts/layout/layout.module').then(m => m.LayoutModule)
+  },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

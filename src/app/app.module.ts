@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashbordComponent } from './core/dashbord/dashbord.component';
 import { CartComponent } from './core/cart/cart.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppService } from './services/app.service';
 import { DashboardService } from './services/dashboard.service';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
@@ -20,6 +20,7 @@ import { BodyComponent } from './layouts/body/body.component';
 import { MainComponent } from './layouts/main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
+import { ContactUsComponent } from './core/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,13 @@ import {MatIconModule} from '@angular/material/icon';
     HeaderComponent,
     BodyComponent,
     MainComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule

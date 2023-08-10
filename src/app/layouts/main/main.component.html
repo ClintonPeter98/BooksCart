@@ -1,9 +1,14 @@
 <p>main works!</p>
-
-<div class="m-2 blue-bg" *ngFor="let item of bookList">
-    <div>{{item.title}}</div>
-    <div>{{item.author}}</div>
-    <div>{{item.category}}</div>
-    <div>{{item.price}}</div>
-    <img [src]="imgBasePath + item.coverFileName" alt=""/>
-</div>
+<ng-container *ngIf="$bookList">
+    <div class="m-2 blue-bg" *ngFor="let item of $bookList | async">
+        <div>{{item.title}}</div>
+        <div>{{item.author}}</div>
+        <div>{{item.category}}</div>
+        <div>{{item.price}}</div>
+        <img [src]="imgBasePath + item.coverFileName" alt="" />
+        <div class="m-4">Add to cart
+            <button class="m-2 btn btn-warning" (click)="addToCart(true)">+</button>
+            <button class="m-2 btn btn-warning" (click)="addToCart(false)">-</button>
+        </div>
+    </div>
+</ng-container>

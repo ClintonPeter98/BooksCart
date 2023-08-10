@@ -36,7 +36,7 @@ export class DashbordComponent implements OnInit, OnChanges, OnDestroy {
       console.log(res);
     })
     // console.log(this.dashboardService.getUserDetails());
-    this.appService.setCartValue(1000);
+    // this.appService.setCartValue(1000);
 
     // for (let i = 0; i< this.productList.length ; i++) {
     //   console.log(this.productList[i]);
